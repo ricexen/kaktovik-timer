@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import KaktovikNumber from './kaktovik-number';
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.PureComponent {
+  timestamp = Date.now;
+  state = { start: this.timestamp(), now: this.timestamp() };
+  getDelta = () => {
+    const { now, start } = this.state;
+    return Number(((now - start) / 1000).toFixed(0));
+  }
+
+  updateNow = () => {
+    this.setState({ now: this.timestamp() });
+  }
+
+  componentDidMount() {
+    setInterval(this.updateNow, 1000);
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <KaktovikNumber decimal={this.getDelta()} />
+        <p>{this.getDelta()}</p>
+      </div>
+    );
+  }
 }
 
 export default App;

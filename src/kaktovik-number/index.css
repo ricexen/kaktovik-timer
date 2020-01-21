@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Kaktovik';
+  src: url('InupiaqNumbers/InupiaqNumbers.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+span.kaktovik-number {
+  font-family: 'Kaktovik';
+  font-size: 10rem;
+}

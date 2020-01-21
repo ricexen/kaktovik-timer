@@ -1,0 +1,3 @@
+[submodule "src/kaktovik-number/InupiaqNumbers"]
+	path = src/kaktovik-number/InupiaqNumbers
+	url = git@github.com:0xcf843ecf802c722f434d56/InupiaqNumbers.git
